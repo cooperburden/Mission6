@@ -1,0 +1,14 @@
+@model Movie
+
+<h1>Movie Added</h1>
+
+<p>Title: @Model.Title</p>
+<p>Director: @Model.Director</p>
+<p>Year: @Model.Year</p>
+<p>Category: @Model.Category</p>
+<p>Rating: @Model.Rating</p>
+<p>Edited: @Model.Edited</p>
+<p>Lent To: @Model.LentTo</p>
+<p>Notes: @Model.Notes</p>
+
+<a href="@Url.Action("Create", "Home")">Add Another Movie</a>
