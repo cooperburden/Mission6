@@ -4,16 +4,17 @@ namespace Mission6Movie.Models
 {
     public class Movie
     {
-        public int Id { get; set; }
-        [Required] public string Category { get; set; }
-        [Required] public string Title { get; set; }
-        [Required] public int Year { get; set; }
-        [Required] public string Director { get; set; }
-        [Required] public string Rating { get; set; }
-        [Required] public bool Edited { get; set; }
+        public int MovieId { get; set; }
+        public int CategoryId { get; set; }  // This links to the Category table
+        public string Title { get; set; }
+        public int Year { get; set; }
+        public string Director { get; set; }
+        public string Rating { get; set; }  // Rating can be null
+        public int? Edited { get; set; }  // Nullable int for Edited
         public string LentTo { get; set; }
-        [StringLength(25)] public string Notes { get; set; }
+        public int? CopiedToPlex { get; set; }  // Nullable int for CopiedToPlex
+        public string Notes { get; set; }
 
-
+        public Categories Categories { get; set; }  // Navigation property for Category table
     }
 }

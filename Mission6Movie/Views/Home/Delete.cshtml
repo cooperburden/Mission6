@@ -1,0 +1,16 @@
+@model Movie
+
+<h1>Are you sure you want to delete the movie?</h1>
+
+<div>
+    <h3>@Model.Title</h3>
+    <p>Year: @Model.Year</p>
+    <p>Director: @Model.Director</p>
+    <p>Category: @Model.Categories.CategoryName</p>
+    <p>Rating: @Model.Rating</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

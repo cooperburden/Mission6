@@ -1,47 +1,77 @@
-@model Movie
+@model Mission6Movie.Models.Movie
 
-<h1>Input your favorite movie! </h1>
+@{
+    ViewData["Title"] = "Create Movie";
+}
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Category"></label>
-        <input asp-for="Category" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Year"></label>
-        <input asp-for="Year" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Director"></label>
-        <input asp-for="Director" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Rating"></label>
-        <select asp-for="Rating" class="form-control" required>
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="Edited"></label>
-        <select asp-for="Edited" class="form-control" required>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="LentTo"></label>
-        <input asp-for="LentTo" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Notes"></label>
-        <textarea asp-for="Notes" class="form-control" maxlength="25"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="CategoryId">Category</label>
+            <select class="form-control" id="CategoryId" name="CategoryId" asp-for="CategoryId" asp-items="ViewBag.Categories">
+                <option value="">-- Select Category --</option> <!-- Empty option to prompt user -->
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Year"></label>
+            <input asp-for="Year" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Director"></label>
+            <input asp-for="Director" class="form-control" />
+            <span asp-validation-for="Director" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Rating">Rating</label>
+            <select asp-for="Rating" class="form-control">
+                <option value="R">R</option>
+                <option value="PG-13">PG-13</option>
+                <option value="PG">PG</option>
+                <option value="G">G</option>
+            </select>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Edited">Edited</label>
+            <input type="checkbox" name="Edited" value="1" @(Model.Edited == 1 ? "checked" : "") />
+            <span asp-validation-for="Edited" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LentTo"></label>
+            <input asp-for="LentTo" class="form-control" />
+            <span asp-validation-for="LentTo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="CopiedToPlex">Copied to Plex</label>
+            <input type="checkbox" name="CopiedToPlex" value="1" @(Model.CopiedToPlex == 1 ? "checked" : "") />
+            <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Notes"></label>
+            <input asp-for="Notes" class="form-control" />
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>
+        
+        
+        
+
+        <button type="submit" class="btn btn-primary">Save Movie</button>
+    </form>
+</div>

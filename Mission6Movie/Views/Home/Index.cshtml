@@ -1,6 +1,54 @@
-﻿@{
+﻿@model IEnumerable<Movie>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <h1>The Joel Hilton Film Collection</h1>
 <img src="~/images/JoelHiltonHeadshot.jpg" alt="Joel Hilton Image" class="img-fluid" />
+
+<h2>Movies in Collection</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+        <th>@Html.DisplayNameFor(model => model.Year)</th>
+        <th>@Html.DisplayNameFor(model => model.Director)</th>
+        <th>@Html.DisplayNameFor(model => model.Rating)</th>
+        <th>@Html.DisplayNameFor(model => model.Edited)</th>
+        <th>@Html.DisplayNameFor(model => model.LentTo)</th>
+        <th>@Html.DisplayNameFor(model => model.CopiedToPlex)</th>
+        <th>@Html.DisplayNameFor(model => model.Notes)</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.Title</td>
+            <td>@movie.CategoryId</td>
+            <td>@movie.Year</td>
+            <td>@movie.Director</td>
+            <td>@movie.Rating</td>
+            <td>@(movie.Edited == 1 ? "Yes" : "No")</td>
+            <td>@movie.LentTo</td>
+            <td>@(movie.CopiedToPlex == 1 ? "Yes" : "No")</td>
+            <td>@movie.Notes</td>
+            <td>
+                <a href="@Url.Action("Edit", "Home", new { id = movie.MovieId })" class="btn btn-warning btn-sm">Edit</a>
+                <a href="@Url.Action("Delete", "Home", new { id = movie.MovieId })" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<!-- Create New Movie Button -->
+<a href="@Url.Action("Create", "Home")" class="btn btn-success">Create New Movie</a>
+
+
+
+

@@ -125,3 +125,4 @@
 /Users/cooperburden/RiderProjects/Mission6Movie/Mission6Movie/obj/Debug/net8.0/Mission6Movie.pdb
 /Users/cooperburden/RiderProjects/Mission6Movie/Mission6Movie/obj/Debug/net8.0/Mission6Movie.genruntimeconfig.cache
 /Users/cooperburden/RiderProjects/Mission6Movie/Mission6Movie/obj/Debug/net8.0/ref/Mission6Movie.dll
+/Users/cooperburden/RiderProjects/Mission6Movie/Mission6Movie/obj/Debug/net8.0/Mission6Movie.sourcelink.json

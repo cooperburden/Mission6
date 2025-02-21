@@ -1,13 +1,13 @@
-@model Movie
+@model Mission6Movie.Models.Movie
 
 <h1>Movie Added</h1>
 
 <p>Title: @Model.Title</p>
 <p>Director: @Model.Director</p>
 <p>Year: @Model.Year</p>
-<p>Category: @Model.Category</p>
+<p>Category: @(Model.Categories != null ? Model.Categories.CategoryName : "No category")</p>
 <p>Rating: @Model.Rating</p>
-<p>Edited: @Model.Edited</p>
+<p>Edited: @(Model.Edited == 1 ? "Yes" : "No")</p>
 <p>Lent To: @Model.LentTo</p>
 <p>Notes: @Model.Notes</p>
 
